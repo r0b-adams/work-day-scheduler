@@ -29,13 +29,13 @@ function colorCheck () {
         // recast hour strings as integers
         var currentHour = parseInt(moment().format("H"));
         var plannerHour = parseInt($(allInputs[i]).attr("data-index"));
-
+        
         if (currentHour == plannerHour) {
-            $(allInputs[i]).css("background-color", "red");
+            $(allInputs[i]).removeClass().addClass("form-control bg-danger");
         } else if (currentHour > plannerHour) {
-            $(allInputs[i]).css('background-color', "gray");
+            $(allInputs[i]).removeClass().addClass("form-control bg-secondary");
         } else {
-            $(allInputs[i]).css("background-color", "green");
+            $(allInputs[i]).removeClass().addClass("form-control bg-success");
         }
     }
 }
@@ -46,7 +46,7 @@ function loadFromLocal () {
     planner = JSON.parse(localStorage.getItem("planner"));
 
     // if a planner object exists, iterate over keys
-    // and assign values to corresponding textarea
+    // and assign values to corresponding textarea id
     if (planner != null) {
         var keyArray = Object.keys(planner);
 
