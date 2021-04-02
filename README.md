@@ -9,7 +9,7 @@ is highlighted in red, future hours in green, and past hours in gray.
 This application applied features from several web APIs for event handling, DOM manipulation, and styling.
 Moment.js provides methods for the clock and the current hour as a comparator for text area styling. 
 jQuery powers DOM manipulation and event handling. Bootstrap provides a foundation for styling, and the
-floppy-disk icon is courtesy of Font Awesome.
+floppy-disk icon is courtesy of Font Awesome. 
 
 ## Usage
 
