@@ -1,8 +1,7 @@
-var contents = $("#contents");
 var allInputs = $("textarea");
 var planner;
 
-// call these methods to account for delay in setInterval
+// call these functions to account for delay in setInterval
 displayTime();
 colorCheck ();
 
@@ -33,7 +32,7 @@ function colorCheck () {
         if (currentHour == plannerHour) {
             $(allInputs[i]).removeClass().addClass("form-control bg-danger");
                         
-        // if the hour is past, textarea is gray
+        // else if the hour is past, textarea is gray
         } else if (currentHour > plannerHour) {
             $(allInputs[i]).removeClass().addClass("form-control bg-secondary");
         
@@ -44,12 +43,12 @@ function colorCheck () {
     }
 }
 
-// retreives the planner object from local storage
-// writes content of planner object to textarea
+// retreives the planner from local storage
+// writes content of planner to textarea
 function loadFromLocal () {
     planner = JSON.parse(localStorage.getItem("planner"));
 
-    // assign planner to empty object if localStorage key returns null
+    // if parsing localStorage returns null, assign planner to empty object 
     if (!planner) {
         planner = {};
 
@@ -69,18 +68,18 @@ function loadFromLocal () {
 // iconClicked: event object
 function saveToLocal (iconClicked) {
 
-    // assign planner to empty object if global var is null
+    //  if global var is null, assign planner to empty object
     if (!planner) {
         planner = {};
     } 
 
-    // saves the clicked icon name to use as the planner object key
+    // saves the clicked icon name to use as the planner key
     var saveKey = $(iconClicked.target).attr("data-name");
 
     // planner key matches corresponding textbox id
     planner[saveKey] = $("#" + saveKey).val();
 
-    // save planner object to local storage as JSON string
+    // save planner to local storage as JSON string
     localStorage.setItem("planner", JSON.stringify(planner));
 }
 
