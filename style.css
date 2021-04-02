@@ -17,6 +17,7 @@ textarea{
 th {
   text-align: right;
   padding: 0;
+  width: 10%;
 }
 
 .table td, .table th {
