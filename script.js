@@ -2,7 +2,7 @@ var contents = $("#contents");
 var allInputs = $("textarea");
 var planner;
 
-
+// call these methods to account for delay in setInterval
 displayTime();
 colorCheck ();
 
@@ -14,15 +14,14 @@ setInterval(displayTime, 1000);
 // color updates every minute
 setInterval(colorCheck, 60000);
 
+$( "i" ).on( "click", saveToLocal);
+
 // sets the jumbotron time
 function displayTime () {
     $('#currentDay').text(moment().format("dddd, MMMM Do YYYY, h:mm:ss a"));
 }
 
 // iterates over textareas and updates styling
-// if the hour is past, textarea is gray
-// if hour is current, textarea is red
-// else textarea is green
 function colorCheck () {
     for (i = 0; i < allInputs.length; i++) {
 
@@ -30,10 +29,15 @@ function colorCheck () {
         var currentHour = parseInt(moment().format("H"));
         var plannerHour = parseInt($(allInputs[i]).attr("data-index"));
         
+        // if hour is current, textarea is red
         if (currentHour == plannerHour) {
             $(allInputs[i]).removeClass().addClass("form-control bg-danger");
+                        
+        // if the hour is past, textarea is gray
         } else if (currentHour > plannerHour) {
             $(allInputs[i]).removeClass().addClass("form-control bg-secondary");
+        
+        // else textarea is green
         } else {
             $(allInputs[i]).removeClass().addClass("form-control bg-success");
         }
@@ -45,38 +49,38 @@ function colorCheck () {
 function loadFromLocal () {
     planner = JSON.parse(localStorage.getItem("planner"));
 
-    // if a planner object exists, iterate over keys
-    // and assign values to corresponding textarea id
-    if (planner != null) {
+    // assign planner to empty object if localStorage key returns null
+    if (!planner) {
+        planner = {};
+
+    // else iterate over keys and assign values to corresponding textarea id    
+    } else {
         var keyArray = Object.keys(planner);
 
         for (i = 0; i < keyArray.length; i++) {
-            var currentKey = keyArray[i];
-            $("#" + currentKey).val(planner[currentKey]);
+            var textAreaID = keyArray[i];
+            var savedTask = planner[textAreaID];
+            $("#" + textAreaID).val(savedTask);
         }
-    
-    // else initialize planner as an empty object
-    } else {
-        planner = {};
     }
 }
 
-// saves the content of corresponding textareato local storage
-$( "i" ).on( "click", function(event) {
-    var clickedIcon = $(event.target);
+// saves the content of corresponding textarea to local storage
+// iconClicked: event object
+function saveToLocal (iconClicked) {
 
-    // saves the button name as a string
-    var saveKey = clickedIcon.attr("data-name");
+    // assign planner to empty object if global var is null
+    if (!planner) {
+        planner = {};
+    } 
 
-    // key in the planner object matches name of corresponding button name and textbox id
+    // saves the clicked icon name to use as the planner object key
+    var saveKey = $(iconClicked.target).attr("data-name");
+
+    // planner key matches corresponding textbox id
     planner[saveKey] = $("#" + saveKey).val();
 
-    saveToLocal();
-
-  });
-
-  // saves the contents of the planner object to local storage
-function saveToLocal () {
+    // save planner object to local storage as JSON string
     localStorage.setItem("planner", JSON.stringify(planner));
 }
 
