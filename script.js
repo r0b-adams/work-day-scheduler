@@ -20,21 +20,21 @@ function displayTime () {
 }
 
 // iterates over textareas and updates styling
+// if the hour is past, textarea is gray
+// if hour is current, textarea is red
+// else textarea is green
 function colorCheck () {
     for (i = 0; i < allInputs.length; i++) {
 
-        //recast strings as integers
+        // recast hour strings as integers
         var currentHour = parseInt(moment().format("H"));
         var plannerHour = parseInt($(allInputs[i]).attr("data-index"));
 
         if (currentHour == plannerHour) {
-            // make it red
             $(allInputs[i]).css("background-color", "red");
         } else if (currentHour > plannerHour) {
-            // make it gray
             $(allInputs[i]).css('background-color', "gray");
         } else {
-            // make it green
             $(allInputs[i]).css("background-color", "green");
         }
     }
