@@ -18,8 +18,13 @@
       href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link 
+      rel="stylesheet" 
+      href="./style.css" 
+    />
+
     <title>Work Day Scheduler</title>
+
   </head>
 
   <body>
@@ -28,73 +33,96 @@
       <p class="lead">A simple calendar app for scheduling your work day</p>
       <p id="currentDay" class="lead"></p>
     </header>
-    
-    <div class="container">
-      <!-- Timeblocks go here -->
-      <table class="table">
+    <div class="container-fluid">
+      <table class="table text-center">
         <tbody>
           <tr>
-            <th scope="row">9 am</th>
-            <td>Mark</td>
-            <td>Otto</td>
+            <th scope="row">9 AM</th>
+            <td>
+              <textarea id="nine" class="form-control" data-index="9" rows="3"></textarea>
+            </td>
+            <td class="saveBtn">
+              <i data-name="nine" class="fas fa-save fa-3x"></i>
+            </td>
           </tr>
           <tr>
-            <th scope="row">10 am</th>
-              <td>
-                <input type="text" name="input10" id="input10">
-              </td>
-            <td>Thornton</td>
+            <th scope="row">10 AM</th>
+            <td>
+              <textarea id="ten" class="form-control" data-index="10" rows="3"></textarea>
+            </td>
+            <td class="saveBtn">
+              <i data-name="ten" class="fas fa-save fa-3x"></i>
+            </td>
           </tr>
           <tr>
-            <th scope="row">11 am</th>
-              <td>
-                <textarea></textarea>
-              </td>
-            <td>the Bird</td>
+            <th scope="row">11 AM</th>
+            <td>
+              <textarea id="eleven" class="form-control" data-index="11" rows="3"></textarea>
+            </td>
+            <td class="saveBtn">
+              <i data-name="eleven" class="fas fa-save fa-3x"></i>
+            </td>
           </tr>
           <tr>
-            <th scope="row">12 pm</th>
-            <td>Larry</td>
-            <td>the Bird</td>
+            <th scope="row">12 AM</th>
+            <td>
+              <textarea id="twelve" class="form-control" data-index="12" rows="3"></textarea>
+            </td>
+            <td class="saveBtn">
+              <i data-name="twelve" class="fas fa-save fa-3x"></i>
+            </td>
           </tr>
           <tr>
-            <th scope="row">1 pm</th>
-            <td>Larry</td>
-            <td>the Bird</td>
+            <th scope="row">1 PM</th>
+            <td>
+              <textarea id="one" class="form-control" data-index="13" rows="3"></textarea>
+            </td>
+            <td class="saveBtn">
+              <i data-name="one" class="fas fa-save fa-3x"></i>
+            </td>
           </tr>
           <tr>
-            <th scope="row">2 pm</th>
-            <td>Larry</td>
-            <td>the Bird</td>
+            <th scope="row">2 PM</th>
+            <td>
+              <textarea id="two" class="form-control" data-index="14" rows="3"></textarea>
+            </td>
+            <td class="saveBtn">
+              <i data-name="two" class="fas fa-save fa-3x"></i>
+            </td>
           </tr>
           <tr>
-            <th scope="row">3 pm</th>
-            <td>Larry</td>
-            <td>the Bird</td>
+            <th scope="row">3 PM</th>
+            <td>
+              <textarea id="three" class="form-control" data-index="15" rows="3"></textarea>
+            </td>
+            <td class="saveBtn">
+              <i data-name="three" class="fas fa-save fa-3x"></i>
+            </td>
           </tr>
           <tr>
-            <th scope="row">4 pm</th>
-            <td>Larry</td>
-            <td>the Bird</td>
+            <th scope="row">4 PM</th>
+            <td>
+              <textarea id="four" class="form-control" data-index="16" rows="3"></textarea>
+            </td>
+            <td class="saveBtn">
+              <i data-name="four" class="fas fa-save fa-3x"></i>
+            </td>
           </tr>
           <tr>
-            <th scope="row">5 pm</th>
-            <td>Larry</td>
-            <td>the Bird</td>
+            <th scope="row">5 PM</th>
+            <td>
+              <textarea id="five" class="form-control" data-index="17" rows="3"></textarea>
+            </td>
+            <td class="saveBtn">
+              <i data-name="five" class="fas fa-save fa-3x"></i>
+            </td>
           </tr>
         </tbody>
-
-        <!-- use these to color rows
-        <tr class="table-secondary">...</tr>
-        <tr class="table-success">...</tr>
-        <tr class="table-danger">...</tr> -->
-
-
-
       </table>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./script.js"></script>
   </body>
 </html>

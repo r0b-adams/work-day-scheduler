@@ -2,6 +2,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   line-height: 1;
+  padding: 0;
 }
 
 textarea{
@@ -11,6 +12,21 @@ textarea{
   color: #000000;
   border-left: 1px solid black;
   padding: 10px;
+}
+
+th {
+  text-align: right;
+  padding: 0;
+}
+
+.table td, .table th {
+  padding: 0;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+}
+
+.table td {
+  vertical-align: middle;
 }
 
 .jumbotron {
@@ -58,14 +74,18 @@ textarea{
 }
 
 .saveBtn {
-  border-left: 1px solid black;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
+  border-radius: 10px;
   background-color: #06AED5;
   color: white;
 }
 
 .saveBtn i:hover {
-  font-size: 20px;
+  color: black;
   transition: all .3s ease-in-out;
+}
+
+.form-control {
+  padding: 0;
+  border:none;
+  color:black;
 }
