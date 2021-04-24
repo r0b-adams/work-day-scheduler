@@ -43,7 +43,7 @@ function colorCheck () {
     }
 }
 
-// retreives the planner from local storage
+// retrieves the planner from local storage
 // writes content of planner to textarea
 function loadFromLocal () {
     planner = JSON.parse(localStorage.getItem("planner"));
