@@ -4,7 +4,7 @@
 
 ## Description
 
-This project is a simple calendar application. The user is able to enter tasks into a text area and save
+A simple calendar application. The user is able to enter tasks into a text area and save
 the contents to local storage when the corresponding icon is clicked. The application will render any 
 previously saved text on page load. Textareas are dynamically styled according to time: the current hour 
 is highlighted in red, future hours in green, and past hours in gray.
